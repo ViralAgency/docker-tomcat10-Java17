@@ -1,0 +1,12 @@
+version: '3.3'
+services:
+  tomcat:
+    container_name: tomcat
+    build: .
+    image: tomcat-10.1.10:Alpine
+    volumes:
+      - ./LOCAL-FILE.war:/opt/tomcat/webapps/CONTAINER-FILE.war
+    ports:
+      - '8080:8080'
+    entrypoint:
+      /opt/tomcat/bin/catalina.sh run
